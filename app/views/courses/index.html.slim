@@ -1,0 +1,13 @@
+= render 'shared/flashes'
+table
+  thead
+    tr
+      th Имя
+      th Дата начала
+      th Кол-во студентов
+  tbody
+  - @courses.each do |course|
+    tr
+      td = link_to course[1], course_path(course[0])
+      td = course[2]
+      td = course[3]

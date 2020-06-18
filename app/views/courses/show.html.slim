@@ -1,0 +1,25 @@
+h1 = @course.title
+h2 Группы курса
+- @course.groups.each do |group|
+  br
+  br
+  p = group.title
+  p = group.start_dt
+  h5 Список студентов
+  - group.students.uniq.each do |student|
+    p = student.name
+
+  = link_to 'Присоединиться к группе', '#', onclick: "showDiv()"
+  #join_div style="display:none;"
+    p Введите email
+    = form_with(url: students_path, method: :post) do |f|
+      = hidden_field_tag ['student']['group_id'], group.id
+      = text_field_tag 'email'
+      = submit_tag 'Отправить'
+br
+br
+
+javascript:
+  function showDiv() {
+    document.getElementById('join_div').style.display = "block";
+  }
