@@ -2,8 +2,8 @@
 
 class StudentsController < ActionController::Base
   def create
-    @student = Student.new(email: params[:email])
-    @student.group_ids = @student.group_ids << params[:group_id]
+    @student = Student.new(email: student_params[:email])
+    @student.group_ids = @student.group_ids << student_params[:group_id]
 
     if @student.save
       flash[:notice] = 'success'

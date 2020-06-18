@@ -13,7 +13,7 @@ h2 Группы курса
   #join_div style="display:none;"
     p Введите email
     = form_with(url: students_path, method: :post) do |f|
-      = hidden_field_tag ['student']['group_id'], group.id
+      = hidden_field_tag ['group_id'], group.id
       = text_field_tag 'email'
       = submit_tag 'Отправить'
 br
